@@ -1,5 +1,5 @@
 import React from 'react';
-import '../index.css';
+import '../utils/index.css';
 
 export default function Square(props) {
   const winningSquareStyle = {

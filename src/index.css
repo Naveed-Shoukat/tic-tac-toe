@@ -48,3 +48,7 @@ ol, ul {
 .game-info {
   margin-left: 20px;
 }
+.game-info .label-info li{
+  /* border: 2px solid black; */
+  font-weight: bolder;
+}

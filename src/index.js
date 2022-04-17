@@ -66,13 +66,10 @@ class Game extends React.Component {
     const squares = current.squares.slice();
     const moveRowCol = this.state.moveRowCol.slice(0, this.state.stepNumber + 1);
     if (calculateWinner(squares) || squares[params]) {return;}  
-    if(params < 3){
-      moveRowCol[this.state.stepNumber+1] = `Row 1 & Col ${params+1}`
-    } else if (params < 6) {
-      moveRowCol[this.state.stepNumber+1] = `Row 2 & Col ${params-2}`
-    } else {
-      moveRowCol[this.state.stepNumber+1] = `Row 3 & Col ${params-5}`
-    }
+
+    moveRowCol[this.state.stepNumber+1] = params < 3 ? `Row 1 & Col ${params+1}` 
+      : params < 6 ? `Row 2 & Col ${params-2}` : `Row 3 & Col ${params-5}`
+
     squares[params]= this.state.xIsNext? 'X' : 'O';
     this.setState({
       history: history.concat([{ squares: squares, }]),
@@ -134,7 +131,7 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>Move Info</div>
-          <ol>{moveRowCol}</ol>
+          <ol className='label-info'>{moveRowCol}</ol>
         </div>
       </div>
     );
